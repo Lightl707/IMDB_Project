@@ -13,11 +13,11 @@ public class Film {
     private String description;
     @DatabaseField
     private String year;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "language_id")
+    @DatabaseField
     private int language_id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "staff_id")
+    @DatabaseField
     private int staff_id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "rating_id")
+    @DatabaseField
     private int rating_id;
 
     public int getId() {
