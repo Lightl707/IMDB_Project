@@ -70,7 +70,7 @@ public class FilmDeserializer extends StdDeserializer<Film> {
         String description = node.get("description").asText();
         film.setDescription(description);
 
-        String year = node.get("year").asText();
+        int year = node.get("year").asInt();
         film.setYear(year);
         return film;
     }

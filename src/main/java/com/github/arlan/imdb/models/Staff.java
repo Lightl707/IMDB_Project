@@ -65,7 +65,7 @@ public class Staff {
     public String getPicture() {
         return picture;
     }
-    Staff(){
+    public Staff(){
     }
     Staff(int id,String fname,String lname,String email,String dateOfBirthday,String picture) {
         this.id = id;

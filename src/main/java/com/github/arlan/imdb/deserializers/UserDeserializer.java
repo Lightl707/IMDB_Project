@@ -32,5 +32,4 @@ public class UserDeserializer extends StdDeserializer<User> {
         user.setPassword(Service.encryption(node.get("password").asText()));
         return user;
     }
-
 }
