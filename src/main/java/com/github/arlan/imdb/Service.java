@@ -2,10 +2,7 @@ package com.github.arlan.imdb;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.github.arlan.imdb.models.Comment;
-import com.github.arlan.imdb.models.Film;
-import com.github.arlan.imdb.models.Role;
-import com.github.arlan.imdb.models.User;
+import com.github.arlan.imdb.models.*;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.j256.ormlite.dao.Dao;
@@ -23,32 +20,32 @@ public class Service {
     }
 
     public static boolean authentication(Context ctx) throws SQLException {
-        boolean check=false;
+        boolean check = false;
         String userName = ctx.basicAuthCredentials().getUsername();
         String userPas = ctx.basicAuthCredentials().getPassword();
-        for (User us: DatabaseConfiguration.userDao.queryForAll()) {
-            if (us.getFname().equals(userName)  && BCrypt.checkpw(userPas, us.getPassword())) {
-                check=true;
+        for (User us : DatabaseConfiguration.userDao.queryForAll()) {
+            if (us.getFname().equals(userName) && BCrypt.checkpw(userPas, us.getPassword())) {
+                check = true;
             }
         }
         return check;
     }
 
     public static Role authorization(Context ctx) throws SQLException {
-        if (searchUser(ctx).getRole()==Role.ADMIN) return Role.ADMIN;
+        if (searchUser(ctx).getRole() == Role.ADMIN) return Role.ADMIN;
         else return Role.USER;
 
     }
 
     public static User searchUser(Context ctx) throws SQLException {
         String userName = ctx.basicAuthCredentials().getUsername();
-        User user=null;
+        User user = null;
         for (User us : DatabaseConfiguration.userDao.queryForAll()) {
             if (us.getFname().equals(userName)) {
-                user=us;
+                user = us;
             }
         }
-        if (user!=null)
+        if (user != null)
             return user;
         else {
             ctx.status(404);
@@ -57,14 +54,29 @@ public class Service {
     }
 
     public static Film searchFilm(int idFilm, Context ctx) throws SQLException {
-        Film film=null;
-        for (Film fl: DatabaseConfiguration.filmDao.queryForAll()) {
-            if (fl.getId()==idFilm) {
-                film=fl;
+        Film film = null;
+        for (Film fl : DatabaseConfiguration.filmDao.queryForAll()) {
+            if (fl.getId() == idFilm) {
+                film = fl;
             }
         }
-        if (film!=null)
+        if (film != null)
             return film;
+        else {
+            ctx.status(404);
+            throw new RuntimeException();
+        }
+    }
+
+    public static Genre searchGenre(int idGenre,Context ctx) throws SQLException {
+        Genre genre = null;
+        for (Genre gn : DatabaseConfiguration.genreDao.queryForAll()) {
+            if (gn.getId() == idGenre) {
+                genre = gn;
+            }
+        }
+        if (genre != null)
+            return genre;
         else {
             ctx.status(404);
             throw new RuntimeException();
@@ -118,7 +130,6 @@ public class Service {
         return om.registerModule(sm);
 
     }
-
 }
 
 

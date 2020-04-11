@@ -12,7 +12,7 @@ public class Film {
     @DatabaseField
     private String description;
     @DatabaseField
-    private String year;
+    private int year;
     @DatabaseField
     private int language_id;
     @DatabaseField
@@ -68,15 +68,15 @@ public class Film {
         this.staff_id = staff_id;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
     public Film() {
     }
-    Film(int id,int genre_id,String description,String year,int language_id,int staff_id,int rating_id) {
+    Film(int id,int genre_id,String description,int year,int language_id,int staff_id,int rating_id) {
         this.id = id;
         this.genre_id = genre_id;
         this.description = description;
