@@ -20,5 +20,4 @@ public class UserSerializer extends StdSerializer<User> {
         jsonGenerator.writeStringField("email", user.getEmail());
         jsonGenerator.writeEndObject();
     }
-
 }
