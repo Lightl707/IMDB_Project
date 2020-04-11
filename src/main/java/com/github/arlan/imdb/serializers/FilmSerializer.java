@@ -15,8 +15,7 @@ public class FilmSerializer extends StdSerializer<Film> {
     public void serialize(Film film, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeStringField("description",film.getDescription());
-        jsonGenerator.writeStringField("year",film.getYear());
+        jsonGenerator.writeStringField("year",String.valueOf(film.getId()));
         jsonGenerator.writeEndObject();
     }
-
 }
