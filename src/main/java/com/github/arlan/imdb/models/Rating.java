@@ -35,7 +35,7 @@ public class Rating {
     public int getComment_id() {
         return comment_id;
     }
-    Rating() {
+    public Rating() {
     }
     Rating(int id,int number,int comment_id) {
         this.id = id;
