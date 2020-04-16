@@ -9,7 +9,7 @@ import com.github.arlan.imdb.models.User;
 import java.io.IOException;
 
 public class FilmSerializer extends StdSerializer<Film> {
-    FilmSerializer() { super(Film.class); }
+    public FilmSerializer() { super(Film.class); }
 
     @Override
     public void serialize(Film film, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {

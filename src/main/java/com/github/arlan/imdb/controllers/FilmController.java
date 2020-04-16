@@ -79,7 +79,7 @@ public class FilmController {
         film = obMap.readValue(json, Film.class);
         DatabaseConfiguration.filmDao.update(film);
     }
-    public static void deleteC(Context ctx) throws SQLException {
+    public static void deleteFilm(Context ctx) throws SQLException {
         int id = Integer.parseInt(ctx.pathParam("id"));
         DatabaseConfiguration.commentDao.deleteById(id);
         ctx.status(204);

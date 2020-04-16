@@ -8,7 +8,7 @@ import com.github.arlan.imdb.models.User;
 import java.io.IOException;
 
 public class UserSerializer extends StdSerializer<User> {
-    UserSerializer() {
+    public UserSerializer() {
         super(User.class);
     }
 

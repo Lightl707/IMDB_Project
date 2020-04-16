@@ -9,7 +9,7 @@ import com.github.arlan.imdb.models.User;
 import java.io.IOException;
 
 public class GenreSerializer extends StdSerializer<Genre> {
-    GenreSerializer() {
+    public GenreSerializer() {
         super(Genre.class);
     }
 

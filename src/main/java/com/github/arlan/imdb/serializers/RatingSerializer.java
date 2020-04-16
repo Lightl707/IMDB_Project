@@ -9,7 +9,7 @@ import com.github.arlan.imdb.models.Rating;
 import java.io.IOException;
 
 public class RatingSerializer extends StdSerializer<Rating> {
-    RatingSerializer() { super(Rating.class); }
+    public RatingSerializer() { super(Rating.class); }
 
     @Override
     public void serialize(Rating rating, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {

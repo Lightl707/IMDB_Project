@@ -9,7 +9,7 @@ import com.github.arlan.imdb.models.User;
 import java.io.IOException;
 
 public class StaffSerializer extends StdSerializer<Staff> {
-    StaffSerializer() {
+    public StaffSerializer() {
         super(Staff.class);
     }
 

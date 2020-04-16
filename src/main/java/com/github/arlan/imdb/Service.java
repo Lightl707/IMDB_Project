@@ -2,7 +2,9 @@ package com.github.arlan.imdb;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.github.arlan.imdb.deserializers.*;
 import com.github.arlan.imdb.models.*;
+import com.github.arlan.imdb.serializers.*;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.j256.ormlite.dao.Dao;
@@ -112,21 +114,37 @@ public class Service {
     public static ObjectMapper forSerialize(ObjectMapper om, SimpleModule sm, Class<?> nameClass) {
         if (User.class.equals(nameClass)) {
             sm.addSerializer(User.class, new UserSerializer());
-        } else if (Post.class.equals(nameClass)) {
-            sm.addSerializer(Post.class, new PostSerializer());
+        } else if (Staff.class.equals(nameClass)) {
+            sm.addSerializer(Staff.class, new StaffSerializer());
         } else if (Comment.class.equals(nameClass)) {
             sm.addSerializer(Comment.class,new CommentSerializer());
+        } else if (Film.class.equals(nameClass)) {
+            sm.addSerializer(Film.class,new FilmSerializer());
+        } else if (Genre.class.equals(nameClass)) {
+            sm.addSerializer(Genre.class,new GenreSerializer());
+        } else if (Rating.class.equals(nameClass)) {
+            sm.addSerializer(Rating.class,new RatingSerializer());
         }
+
+
         return om.registerModule(sm);
     }
     public static ObjectMapper forDeserialize(ObjectMapper om, SimpleModule sm, Class<?> nameClass) {
         if (User.class.equals(nameClass)) {
             sm.addDeserializer(User.class, new UserDeserializer());
-        } else if (Post.class.equals(nameClass)) {
-            sm.addDeserializer(Post.class, new PostDeserializer());
+        } else if (Staff.class.equals(nameClass)) {
+            sm.addDeserializer(Staff.class, new StaffDeserializer());
         } else if (Comment.class.equals(nameClass)) {
             sm.addDeserializer(Comment.class, new CommentDeserializer());
+        } else if (Film.class.equals(nameClass)) {
+            sm.addDeserializer(Film.class, new FilmDeserializer());
+        } else if (Genre.class.equals(nameClass)) {
+            sm.addDeserializer(Genre.class, new GenreDeserializer());
+        } else if (Rating.class.equals(nameClass)) {
+            sm.addDeserializer(Rating.class, new RatingDeserializer());
         }
+
+
         return om.registerModule(sm);
 
     }
