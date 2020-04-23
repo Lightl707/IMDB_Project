@@ -23,7 +23,7 @@ public class DatabaseConfiguration {
 
     static {
         try {
-            connectionSource = new JdbcConnectionSource("jdbc:sqlite://C:\\Users\\User\\Desktop\\imdb.db");
+            connectionSource = new JdbcConnectionSource("jdbc:sqlite://C:\\Users\\User\\Desktop\\test1.db");
             TableUtils.createTableIfNotExists(connectionSource, User.class);
             TableUtils.createTableIfNotExists(connectionSource, Comment.class);
             userDao = DaoManager.createDao(DatabaseConfiguration.connectionSource, User.class);

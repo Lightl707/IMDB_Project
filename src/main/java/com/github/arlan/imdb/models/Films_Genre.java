@@ -5,7 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "films_genre")
 public class Films_Genre {
-    @DatabaseField(generatedId = true)
+    @DatabaseField(generatedId = true,columnName = "id")
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "genre_id")
     private int genre_id;

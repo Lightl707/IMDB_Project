@@ -5,9 +5,9 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "genre")
 public class Genre {
-    @DatabaseField(generatedId = true)
+    @DatabaseField(generatedId = true,columnName = "id")
     private int id;
-    @DatabaseField
+    @DatabaseField(columnName = "name")
     private String name;
 
     public void setId(int id) {

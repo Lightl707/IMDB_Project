@@ -5,19 +5,19 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "film")
 public class Film {
-    @DatabaseField(generatedId = true)
+    @DatabaseField(generatedId = true,columnName = "id")
     private int id;
     @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "genre_id")
     private int genre_id;
-    @DatabaseField
+    @DatabaseField(columnName = "description")
     private String description;
-    @DatabaseField
+    @DatabaseField(columnName = "year")
     private int year;
-    @DatabaseField
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "language_id")
     private int language_id;
-    @DatabaseField
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "staff_id")
     private int staff_id;
-    @DatabaseField
+    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "rating_id")
     private int rating_id;
 
     public int getId() {

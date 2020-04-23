@@ -5,17 +5,17 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "staff")
 public class Staff {
-    @DatabaseField(generatedId = true)
+    @DatabaseField(generatedId = true,columnName = "id")
     private int id;
-    @DatabaseField
+    @DatabaseField(columnName = "fname")
     private String fname;
-    @DatabaseField
+    @DatabaseField(columnName = "lname")
     private String lname;
-    @DatabaseField
+    @DatabaseField(columnName = "email")
     private String email;
-    @DatabaseField
+    @DatabaseField(columnName = "dateOfBirthday")
     private String dateOfBirthday;
-    @DatabaseField
+    @DatabaseField(columnName = "picture")
     private String picture;
 
     public int getId() {

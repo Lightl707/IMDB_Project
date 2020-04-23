@@ -13,19 +13,19 @@ public class User {
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField
+    @DatabaseField(columnName = "fname")
     private String fname;
 
-    @DatabaseField
+    @DatabaseField(columnName = "lname")
     private String lname;
 
-    @DatabaseField
+    @DatabaseField(columnName = "email")
     private String email;
 
-    @DatabaseField
+    @DatabaseField(columnName = "password")
     private String password;
 
-    @DatabaseField
+    @DatabaseField(columnName = "role")
     private Enum role;
 
     public void setEmail(String email) {

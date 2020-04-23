@@ -8,7 +8,7 @@ import com.neovisionaries.i18n.LanguageCode;
 public class Language {
     @DatabaseField(generatedId = true)
     private int id;
-    @DatabaseField
+    @DatabaseField(columnName = "ISO-639")
     private static String LanguageCode;
 
     public void setId(int id) {
