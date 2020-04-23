@@ -1,4 +1,4 @@
-# IMDB-Internet Movie Database приложение для просмотра Фильмов.
+# IMDB-Internet Movie Database.
 
 Сервис использует протокол HTTP и формат JSON для передачи данных, авторизация Basic Auth.
 
