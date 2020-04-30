@@ -26,6 +26,13 @@ public class DatabaseConfiguration {
             connectionSource = new JdbcConnectionSource("jdbc:sqlite://C:\\Users\\User\\Desktop\\test1.db");
             TableUtils.createTableIfNotExists(connectionSource, User.class);
             TableUtils.createTableIfNotExists(connectionSource, Comment.class);
+            TableUtils.createTableIfNotExists(connectionSource, Staff.class);
+            TableUtils.createTableIfNotExists(connectionSource, Film.class);
+            TableUtils.createTableIfNotExists(connectionSource, Rating.class);
+            TableUtils.createTableIfNotExists(connectionSource, Genre.class);
+            TableUtils.createTableIfNotExists(connectionSource, Language.class);
+            TableUtils.createTableIfNotExists(connectionSource, Films_Genre.class);
+            TableUtils.createTableIfNotExists(connectionSource, Staff_Films.class);
             userDao = DaoManager.createDao(DatabaseConfiguration.connectionSource, User.class);
             commentDao = DaoManager.createDao(DatabaseConfiguration.connectionSource, Comment.class);
             filmDao = DaoManager.createDao(DatabaseConfiguration.connectionSource,Film.class);

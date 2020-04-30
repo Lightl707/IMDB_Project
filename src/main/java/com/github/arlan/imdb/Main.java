@@ -15,15 +15,15 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         ArrayList<User> userList = new ArrayList<User>();
-        Javalin app = Javalin.create().start(22896);
-        app.post("/users", ctx -> UserController.add(ctx));
-        app.get("/users", ctx -> UserController.getAll(ctx));
-        app.get("/users/:id", ctx -> UserController.getById(ctx));
-        app.delete("/users/:id", context -> UserController.delete(context));
-        app.patch("/users", context -> UserController.patch(context));
+        Javalin app = Javalin.create().start(22897);
+        app.post("/user/", ctx -> UserController.add(ctx));
+        app.get("/user/", ctx -> UserController.getAll(ctx));
+        app.get("/user/:id", ctx -> UserController.getById(ctx));
+        app.delete("/user/:id", context -> UserController.delete(context));
+        app.patch("/user/", context -> UserController.patch(context));
 
-        app.post("/film", context -> FilmController.addFilm(context));
-        app.get("/film", context -> FilmController.getAllFilms(context));
+        app.post("/film/", context -> FilmController.addFilm(context));
+        app.get("/film/", context -> FilmController.getAllFilms(context));
         app.get("/film/:id", context -> FilmController.getByIdFilms(context));
         app.delete("/film/:id", context -> FilmController.deleteFilm(context));
         app.patch("/film", context -> FilmController.patchFilm(context));
