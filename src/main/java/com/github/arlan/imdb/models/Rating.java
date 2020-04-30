@@ -9,7 +9,7 @@ public class Rating {
     private int id;
     @DatabaseField
     private int number;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "comment_id")
+    @DatabaseField(columnName = "comment_id")
     private int comment_id;
 
     public void setId(int id) {

@@ -18,12 +18,19 @@ public class UserController {
 
 
     public static void add(Context ctx) throws IOException, SQLException {
-        String json = ctx.body();
-        User user;
-        ObjectMapper obMap = Service.createObjectMapper(false, User.class);
-        user = obMap.readValue(json, User.class);
-        DatabaseConfiguration.userDao.create(user);
-        ctx.status(201);
+        if (Service.authentication(ctx)) {
+            if (Service.authorization(ctx) == Role.ADMIN) {
+                String json = ctx.body();
+                User user;
+                ObjectMapper obMap = Service.createObjectMapper(false, User.class);
+                user = obMap.readValue(json, User.class);
+                DatabaseConfiguration.userDao.create(user);
+                ctx.status(201);
+            }
+        }
+        else {
+            ctx.status(401);
+        }
     }
 
     public static void getAll(Context ctx) throws JsonProcessingException, SQLException {

@@ -24,6 +24,7 @@ public class UserDeserializer extends StdDeserializer<User> {
         JsonNode node = parser.getCodec().readTree(parser);
 
         user.setId(node.get("id").asInt());
+        user.setLogin(node.get("login").asText());
         user.setFname(node.get("fname").asText());
         user.setLname(node.get("lname").asText());
         user.setEmail(node.get("email").asText());

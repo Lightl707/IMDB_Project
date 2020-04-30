@@ -7,9 +7,9 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Staff_Films {
     @DatabaseField(generatedId = true,columnName = "id")
     private int id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "staff_id")
+    @DatabaseField(columnName = "staff_id")
     private int staff_id;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true, columnName = "films_id")
+    @DatabaseField(columnName = "films_id")
     private int films_id;
 
     public void setId(int id) {
