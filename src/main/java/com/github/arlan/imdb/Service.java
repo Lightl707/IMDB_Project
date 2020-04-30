@@ -26,7 +26,7 @@ public class Service {
         String userName = ctx.basicAuthCredentials().getUsername();
         String userPas = ctx.basicAuthCredentials().getPassword();
         for (User us : DatabaseConfiguration.userDao.queryForAll()) {
-            if (us.getFname().equals(userName) && BCrypt.checkpw(userPas, us.getPassword())) {
+            if (us.getLogin().equals(userName) && BCrypt.checkpw(userPas, us.getPassword())) {
                 check = true;
             }
         }

@@ -22,11 +22,13 @@ public class User {
     @DatabaseField(columnName = "email")
     private String email;
 
+    @DatabaseField(columnName = "login")
+    private  String login;
     @DatabaseField(columnName = "password")
     private String password;
 
     @DatabaseField(columnName = "role")
-    private Enum role;
+    private Role role;
 
     public void setEmail(String email) {
         this.email = email;
@@ -68,17 +70,26 @@ public class User {
         return password;
     }
 
-    public Enum getRole() {return role;}
+    public Role getRole() {return role;}
 
-    public void setRole(Enum role) {this.role = role;}
+    public void setRole(Role role) {this.role = role;}
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getLogin() {
+        return login;
+    }
 
     public User() {
     }
 
-    public User(int id, String fname, String lname, String email,String password,Enum role) {
+    public User(int id, String fname, String lname, String email,String login,String password,Role role) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
+        this.login = login;
         this.email = email;
         this.role = role;
         this.password = password;
