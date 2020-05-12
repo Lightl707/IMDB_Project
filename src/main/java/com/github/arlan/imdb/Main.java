@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         ArrayList<User> userList = new ArrayList<User>();
-        Javalin app = Javalin.create().start(21707);
+        Javalin app = Javalin.create().start(22896);
         app.post("/user/", ctx -> UserController.add(ctx));
         app.get("/user/", ctx -> UserController.getAll(ctx));
         app.get("/user/:id", ctx -> UserController.getById(ctx));
